@@ -52,7 +52,7 @@ alt='Jayed Hossain Jibon'
 </div>
 <hr/>
 
-##### How AsyncStorage Work
+##### 01. How AsyncStorage Work
 <details>
 <summary style="cursor:pointer">Solution</summary>
 
@@ -70,7 +70,7 @@ const App = () => {
   };
 
   const getData = async () => {
-    // // when we get data we can call key property
+    // when we get data we can call key property
     const name = await AsyncStorage.getItem('name');
     setUser(name);
     // console.log(name);
@@ -119,6 +119,20 @@ const styles = StyleSheet.create({
     width: 10,
   },
 });
+
+```
+</details>
+
+
+##### 02. React Native Vector Icons
+<details>
+<summary style="cursor:pointer">Solution</summary>
+
+```js
+// https://www.npmjs.com/package/react-native-vector-icons
+// Android Setup
+// Go to => android/app/build.gradle (NOT android/build.gradle) and add:
+// apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
 
 ```
 </details>
