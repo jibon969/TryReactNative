@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   View,
   StyleSheet,
@@ -7,14 +8,11 @@ import {
   TouchableOpacity,
   ScrollView,
   Alert,
-  Image,
 } from 'react-native';
-
-import {useState} from 'react';
-import {BASE_URL} from '../api/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { BASE_URL } from '../api/api';
 
-const SignupScreen = ({navigation}) => {
+const SignupScreen = ({ navigation }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [contactNumber, setContactNumber] = useState('');
@@ -30,11 +28,11 @@ const SignupScreen = ({navigation}) => {
     setLastName(text);
   };
 
-  const handleContactName = text => {
+  const handleContactNumber = text => {
     setContactNumber(text);
   };
 
-  const handleSetEmail = text => {
+  const handleEmail = text => {
     setEmail(text);
   };
 
@@ -86,7 +84,7 @@ const SignupScreen = ({navigation}) => {
         }
       } else {
         if (responseData.error) {
-          showAlert(responseData.error);
+          showAlert('Error', responseData.error);
         } else {
           showAlert(
             'Oops, an Error',
@@ -112,7 +110,6 @@ const SignupScreen = ({navigation}) => {
           <Text style={styles.register}>Register your account</Text>
         </View>
         <View style={styles.contactUsForm}>
-          <View style={{marginTop: 9}} />
           <TextInput
             placeholder="First Name *"
             style={styles.input}
@@ -120,9 +117,8 @@ const SignupScreen = ({navigation}) => {
             value={firstName}
             onChangeText={handleFirstName}
           />
-
           <TextInput
-            placeholder="Last name *"
+            placeholder="Last Name *"
             style={styles.input}
             selectionColor="#183153"
             value={lastName}
@@ -134,14 +130,14 @@ const SignupScreen = ({navigation}) => {
             style={styles.input}
             selectionColor="#183153"
             value={contactNumber}
-            onChangeText={handleContactName}
+            onChangeText={handleContactNumber}
           />
           <TextInput
             placeholder="E-mail *"
             style={styles.input}
             selectionColor="#183153"
             value={email}
-            onChangeText={handleSetEmail}
+            onChangeText={handleEmail}
           />
           <TextInput
             placeholder="Enter your password *"
@@ -150,17 +146,20 @@ const SignupScreen = ({navigation}) => {
             value={password}
             onChangeText={handlePassword}
           />
-          <View style={styles.styleRegisterBtn}>
-            <TouchableOpacity onPress={handleSubmit} disabled={isSubmitting}>
-              <Text style={styles.sendMessage}>
-                {isSubmitting ? 'Signing Up...' : 'Sign Up'}
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.styleLoginBtn}>
-            <Text style={styles.loginText}>I have already an account </Text>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={handleSubmit}
+            disabled={isSubmitting}>
+            <Text style={styles.buttonText}>
+              {isSubmitting ? 'Signing Up...' : 'Sign Up'}
+            </Text>
+          </TouchableOpacity>
+          <View style={styles.signInSection}>
+            <Text style={styles.signInSectionText}>
+              Already have an account?
+            </Text>
             <TouchableOpacity onPress={() => navigation.navigate('LoginStack')}>
-              <Text style={styles.signInBtn}>Sign in</Text>
+              <Text style={styles.signInButtonText}>Sign In</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -172,82 +171,55 @@ const SignupScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    overflow: 'hidden',
-    backgroundColor: '#183153',
-    color: '#007036',
+    backgroundColor: '#FFF',
     padding: 10,
   },
-  textMessage: {
-    margin: 1,
-  },
-
   register: {
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: 25,
-    margin: 10,
-    color: '#FFF',
+    marginVertical: 10,
+    color: '#000',
   },
-
   contactUsForm: {
     borderWidth: 1,
     borderColor: '#E9EBEC',
     borderRadius: 10,
-    padding: 5,
+    padding: 10,
   },
   input: {
     height: 45,
-    margin: 8,
-    padding: 10,
+    marginVertical: 5,
+    paddingHorizontal: 10,
     borderRadius: 5,
     borderColor: '#E9EBEC',
     backgroundColor: '#E9EBEC',
   },
-
-  styleRegisterBtn: {
-    borderRadius: 10,
+  button: {
+    backgroundColor: '#007036',
     padding: 10,
-  },
-  sendMessage: {
-    padding: 10,
-    backgroundColor: '#E9EBEC',
-    textAlign: 'center',
     borderRadius: 8,
-    fontWeight: 'bold',
-    borderColor: '#E9EBEC',
-    color: '#000',
-    overflow: 'hidden',
+    marginVertical: 10,
   },
-
-  styleLoginBtn: {
-    margin: 20,
-  },
-  loginText: {
+  buttonText: {
     textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 16,
     color: '#FFF',
-  },
-  signInBtn: {
-    marginTop: 10,
-    padding: 5,
-    backgroundColor: '#E9EBEC',
-    textAlign: 'center',
-    borderRadius: 8,
     fontWeight: 'bold',
-    borderColor: '#E9EBEC',
-    color: '#000',
-    overflow: 'hidden',
-    width: 100,
-    alignSelf: 'center',
   },
-  logoSection: {
+  signInSection: {
+    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
+    marginTop: 20,
   },
-  logoSize: {
-    width: 200,
-    height: 200,
+  signInSectionText: {
+    color: '#000',
+    fontSize: 16,
+  },
+  signInButtonText: {
+    color: '#007036',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginLeft: 5,
   },
 });
 

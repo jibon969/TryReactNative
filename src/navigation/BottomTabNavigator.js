@@ -2,6 +2,7 @@ import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Text, StyleSheet, View} from 'react-native';
 import {routes, screens} from './RouteItems';
+import {useAuth} from '../contexts/AuthContext'; // Import the AuthContext
 
 /*==================================================================
                     Added stack-navigators
@@ -43,6 +44,7 @@ const tabOptions = ({route}) => {
 const BottomTabNavigator = () => {
   return (
     <Tab.Navigator screenOptions={tabOptions}>
+      <Tab.Screen name={screens.HomeStack} component={HomeStackNavigator} />
       <Tab.Screen
         name={screens.LoginStack}
         component={LoginStackNavigator}
@@ -57,7 +59,7 @@ const BottomTabNavigator = () => {
           tabBarStyle: {display: 'none'},
         }}
       />
-      <Tab.Screen name={screens.HomeStack} component={HomeStackNavigator} />
+
       <Tab.Screen name={screens.AboutStack} component={AboutStackNavigator} />
       <Tab.Screen
         name={screens.ContactStack}
