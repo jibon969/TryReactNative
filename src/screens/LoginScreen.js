@@ -21,7 +21,7 @@ const LoginScreen = ({navigation}) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState('');
 
-  // const {setUserContext} = useAuth();
+  const {setUserContext} = useAuth();
 
   const handleLogin = async () => {
     setIsSubmitting(true);
@@ -44,7 +44,7 @@ const LoginScreen = ({navigation}) => {
         const {token, ...userData} = data;
 
         await AsyncStorage.setItem('token', token);
-        // setUserContext(userData);
+        setUserContext(userData);
         navigation.navigate('HomeStack');
       } else {
         const errorResponse = await response.json(); // Parse error response
