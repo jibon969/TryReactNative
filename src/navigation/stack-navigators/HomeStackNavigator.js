@@ -8,14 +8,10 @@ import {
   View,
 } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
-import {useAuth} from '../contexts/AuthContext'; // Import the AuthContext
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import HomeScreen from '../../screens/HomeScreen';
-import AboutScreen from '../../screens/AboutScreen';
-import Contact from '../../components/Contact/Contact';
-import LoginScreen from '../../screens/LoginScreen';
 
 const Stack = createStackNavigator();
 
@@ -64,35 +60,18 @@ const HomeStackNavigator = () => {
           </View>
         ),
       })}>
-      <>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            title: (
-              <View>
-                <Text style={styles.mainHeaderTitle}>Application Name</Text>
-              </View>
-            ),
-          }}
-        />
-        <Stack.Screen
-          name="About"
-          component={AboutScreen}
-          options={{
-            title: 'About Us',
-            headerTitleAlign: 'left',
-          }}
-        />
-        <Stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{
-            title: '',
-            headerTitleAlign: 'left',
-          }}
-        />
-      </>
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          title: (
+            <View>
+              {/*<Image source={require('../../assets/adaptive-icon.png')} style={styles.headerImage}/>*/}
+              <Text style={styles.mainHeaderTitle}>Application Name</Text>
+            </View>
+          ),
+        }}
+      />
     </Stack.Navigator>
   );
 };

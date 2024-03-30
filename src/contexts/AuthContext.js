@@ -1,6 +1,8 @@
-import React, {createContext, useContext, useState} from 'react';
+import React, {createContext, useContext, useState, useEffect} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {BASE_URL} from '../api/api';
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 export const useAuth = () => {
   return useContext(AuthContext);
@@ -9,19 +11,28 @@ export const useAuth = () => {
 export const AuthProvider = ({children}) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [mainLoader, setMainLoader] = useState(true);
 
-  // Function to set user data
-  const setUserContext = userData => {
-    setUser(userData);
-  };
+  useEffect(() => {
+    // Check if user is already authenticated
+    const checkAuthentication = async () => {
+      const token = await AsyncStorage.getItem('token');
+      if (token) {
+        setUser(token); // Assuming user data is just the token for simplicity
+        setIsAuthenticated(true);
+      }
+      setMainLoader(false);
+    };
+
+    checkAuthentication();
+  }, []);
 
   return (
     <AuthContext.Provider
       value={{
         user,
-        setUserContext,
         isAuthenticated,
-        setIsAuthenticated,
+        mainLoader,
       }}>
       {children}
     </AuthContext.Provider>

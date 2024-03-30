@@ -18,6 +18,9 @@ export const screens = {
   UserProfileStack: 'UserProfileStack',
   UserProfile: 'UserProfile',
 
+  SettingStack: 'SettingStack',
+  Setting: 'Setting',
+
   LoginStack: 'LoginStack',
   Login: 'Login',
 
@@ -134,6 +137,22 @@ export const routes = [
     title: 'UserProfile',
     showInTab: false,
     showInDrawer: true,
+  },
+
+  // 23. SettingStack ======================================================================
+  {
+    name: screens.SettingStack,
+    focusedRoute: screens.SettingStack,
+    title: 'Setting',
+    showInTab: false,
+    showInDrawer: true,
+  },
+  {
+    name: screens.Setting,
+    focusedRoute: screens.SettingStack,
+    title: 'Setting',
+    showInTab: false,
+    showInDrawer: false,
   },
 
   // LoginStack =======================================================

@@ -2,7 +2,6 @@ import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Text, StyleSheet, View} from 'react-native';
 import {routes, screens} from './RouteItems';
-import {useAuth} from '../contexts/AuthContext'; // Import the AuthContext
 
 /*==================================================================
                     Added stack-navigators
@@ -14,6 +13,7 @@ import SearchStackNavigator from './stack-navigators/SearchStackNavigator';
 import UserProfileStackNavigator from './stack-navigators/UserProfileStackNavigator';
 import LoginStackNavigator from './stack-navigators/LoginStackNavigator';
 import SignupStackNavigator from './stack-navigators/SignupStackNavigator';
+import SettingStackNavigator from './stack-navigators/SettingStackNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -59,7 +59,6 @@ const BottomTabNavigator = () => {
           tabBarStyle: {display: 'none'},
         }}
       />
-
       <Tab.Screen name={screens.AboutStack} component={AboutStackNavigator} />
       <Tab.Screen
         name={screens.ContactStack}
@@ -70,6 +69,10 @@ const BottomTabNavigator = () => {
       <Tab.Screen
         name={screens.UserProfileStack}
         component={UserProfileStackNavigator}
+      />
+      <Tab.Screen
+        name={screens.SettingStack}
+        component={SettingStackNavigator}
       />
     </Tab.Navigator>
   );
