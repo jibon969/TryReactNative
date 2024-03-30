@@ -13,15 +13,12 @@ import {
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {BASE_URL} from '../api/api';
-import {useAuth} from '../contexts/AuthContext';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState('');
-
-  // const {setUserContext} = useAuth();
 
   const handleLogin = async () => {
     setIsSubmitting(true);

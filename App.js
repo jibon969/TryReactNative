@@ -18,7 +18,7 @@ const App = () => {
   return (
     <>
       <SafeAreaView style={styles.safeArea}>
-        <StatusBar backgroundColor="#fff" barStyle="dark-content" />
+        <StatusBar backgroundColor="#E85467" barStyle="dark-content" />
         <AuthProvider>
           <NavigationContainer ref={navigationRef}>
             <DrawerNavigator nav={nav} />
@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     overflow: 'hidden',
-    backgroundColor: '#FFF',
-    color: '#000',
+    backgroundColor: '#E85467',
+    color: '#FFF',
   },
   statusBarFooter: {
     flex: 1,
