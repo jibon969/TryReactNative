@@ -13,7 +13,7 @@ import SearchStackNavigator from './stack-navigators/SearchStackNavigator';
 import UserProfileStackNavigator from './stack-navigators/UserProfileStackNavigator';
 import LoginStackNavigator from './stack-navigators/LoginStackNavigator';
 import SignupStackNavigator from './stack-navigators/SignupStackNavigator';
-import SettingStackNavigator from './stack-navigators/SettingStackNavigator';
+import LogoutStackNavigator from './stack-navigators/LogoutStackNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -59,6 +59,14 @@ const BottomTabNavigator = () => {
           tabBarStyle: {display: 'none'},
         }}
       />
+      <Tab.Screen
+        name={screens.LogoutStack}
+        component={LogoutStackNavigator}
+        options={{
+          tabBarStyle: {display: 'none'},
+        }}
+      />
+
       <Tab.Screen name={screens.AboutStack} component={AboutStackNavigator} />
       <Tab.Screen
         name={screens.ContactStack}
@@ -69,10 +77,6 @@ const BottomTabNavigator = () => {
       <Tab.Screen
         name={screens.UserProfileStack}
         component={UserProfileStackNavigator}
-      />
-      <Tab.Screen
-        name={screens.SettingStack}
-        component={SettingStackNavigator}
       />
     </Tab.Navigator>
   );

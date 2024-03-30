@@ -144,7 +144,7 @@ const UserProfileScreen = ({navigation}) => {
           </TouchableOpacity>
 
           {/* Setting Stack*/}
-          <TouchableOpacity onPress={() => navigation.navigate('SettingStack')}>
+          <TouchableOpacity>
             <View style={styles.userProfileContent}>
               <View style={styles.profileIcon}>
                 <Text>

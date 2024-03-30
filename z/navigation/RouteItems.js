@@ -18,14 +18,14 @@ export const screens = {
   UserProfileStack: 'UserProfileStack',
   UserProfile: 'UserProfile',
 
-  SettingStack: 'SettingStack',
-  Setting: 'Setting',
-
   LoginStack: 'LoginStack',
   Login: 'Login',
 
   SignupStack: 'SignupStack',
   Signup: 'Signup',
+
+  LogoutStack: 'LogoutStack',
+  Logout: 'Logout',
 };
 
 export const routes = [
@@ -139,22 +139,6 @@ export const routes = [
     showInDrawer: true,
   },
 
-  // 23. SettingStack ======================================================================
-  {
-    name: screens.SettingStack,
-    focusedRoute: screens.SettingStack,
-    title: 'Setting',
-    showInTab: false,
-    showInDrawer: true,
-  },
-  {
-    name: screens.Setting,
-    focusedRoute: screens.SettingStack,
-    title: 'Setting',
-    showInTab: false,
-    showInDrawer: false,
-  },
-
   // LoginStack =======================================================
   {
     name: screens.LoginStack,
@@ -167,5 +151,14 @@ export const routes = [
     name: screens.SignupStack,
     focusedRoute: screens.SignupStack,
     title: 'Signup',
+  },
+
+  // 22. LogoutStack ===========================================================================
+  {
+    name: screens.LogoutStack,
+    focusedRoute: screens.LogoutStack,
+    title: 'Logout',
+    showInTab: false,
+    showInDrawer: false,
   },
 ];

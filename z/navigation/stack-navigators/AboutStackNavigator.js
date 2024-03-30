@@ -1,15 +1,14 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Platform, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import AboutScreen from '../../screens/AboutScreen';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-import UserProfileScreen from '../../screens/UserProfileScreen';
-
 const Stack = createStackNavigator();
 
-const UserProfileStackNavigator = () => {
+const AboutStackNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={({navigation, route}) => ({
@@ -53,11 +52,11 @@ const UserProfileStackNavigator = () => {
         ),
       })}>
       <Stack.Screen
-        name="UserProfile"
-        component={UserProfileScreen}
+        name="About"
+        component={AboutScreen}
         // Custom title
         options={{
-          title: 'User Profile',
+          title: 'About Us',
           headerTitleAlign: 'left',
         }}
       />
@@ -106,4 +105,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default UserProfileStackNavigator;
+export default AboutStackNavigator;
