@@ -1,6 +1,6 @@
 import React, {createContext, useContext, useState, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {BASE_URL} from '../api/api';
+// import {BASE_URL} from '../api/api';
 
 export const AuthContext = createContext();
 
@@ -18,7 +18,7 @@ export const AuthProvider = ({children}) => {
     const checkAuthentication = async () => {
       const token = await AsyncStorage.getItem('token');
       if (token) {
-        setUser(token); // Assuming user data is just the token for simplicity
+        setUser(token);
         setIsAuthenticated(true);
       }
       setMainLoader(false);
