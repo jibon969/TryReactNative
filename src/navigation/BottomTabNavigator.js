@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React, {useContext} from 'react';
+import {AuthContext} from '../contexts/AuthContext';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Text, StyleSheet, View} from 'react-native';
 import {routes, screens} from './RouteItems';
@@ -42,38 +43,53 @@ const tabOptions = ({route}) => {
 };
 
 const BottomTabNavigator = () => {
+  const {isAuthenticated} = useContext(AuthContext);
+
   return (
     <Tab.Navigator screenOptions={tabOptions}>
-      <Tab.Screen name={screens.HomeStack} component={HomeStackNavigator} />
-      <Tab.Screen
-        name={screens.LoginStack}
-        component={LoginStackNavigator}
-        options={{
-          tabBarStyle: {display: 'none'},
-        }}
-      />
-      <Tab.Screen
-        name={screens.SignupStack}
-        component={SignupStackNavigator}
-        options={{
-          tabBarStyle: {display: 'none'},
-        }}
-      />
-      <Tab.Screen name={screens.AboutStack} component={AboutStackNavigator} />
-      <Tab.Screen
-        name={screens.ContactStack}
-        component={ContactStackNavigator}
-      />
-
-      <Tab.Screen name={screens.SearchStack} component={SearchStackNavigator} />
-      <Tab.Screen
-        name={screens.UserProfileStack}
-        component={UserProfileStackNavigator}
-      />
-      <Tab.Screen
-        name={screens.SettingStack}
-        component={SettingStackNavigator}
-      />
+      {isAuthenticated ? (
+        <>
+          <Tab.Screen name={screens.HomeStack} component={HomeStackNavigator} />
+          <Tab.Screen
+            name={screens.AboutStack}
+            component={AboutStackNavigator}
+          />
+          <Tab.Screen
+            name={screens.ContactStack}
+            component={ContactStackNavigator}
+          />
+          <Tab.Screen
+            name={screens.SearchStack}
+            component={SearchStackNavigator}
+          />
+          <Tab.Screen
+            name={screens.UserProfileStack}
+            component={UserProfileStackNavigator}
+          />
+          <Tab.Screen
+            name={screens.SettingStack}
+            component={SettingStackNavigator}
+          />
+        </>
+      ) : (
+        // Render the LoginStackNavigator and SignupStackNavigator if not authenticated
+        <>
+          <Tab.Screen
+            name={screens.LoginStack}
+            component={LoginStackNavigator}
+            options={{
+              tabBarStyle: {display: 'none'},
+            }}
+          />
+          <Tab.Screen
+            name={screens.SignupStack}
+            component={SignupStackNavigator}
+            options={{
+              tabBarStyle: {display: 'none'},
+            }}
+          />
+        </>
+      )}
     </Tab.Navigator>
   );
 };
