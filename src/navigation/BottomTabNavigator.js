@@ -24,7 +24,7 @@ const tabOptions = ({route}) => {
   if (!item.showInTab) {
     // hide this tab
     return {
-      tabBarButton: () => <View style={{width: 0}} />,
+      tabBarButton: () => <View style={styles.tabBottomStyle} />,
       headerShown: false,
       tabBarStyle: styles.tabContainer,
       title: item.title,
@@ -101,6 +101,9 @@ const styles = StyleSheet.create({
   },
   tabContainer: {
     height: 60,
+  },
+  tabBottomStyle: {
+    width: 0,
   },
 });
 
