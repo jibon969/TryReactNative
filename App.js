@@ -6,10 +6,10 @@ import {
   View,
   Platform,
 } from 'react-native';
+
 import {NavigationContainer} from '@react-navigation/native';
 import DrawerNavigator from './src/navigation/DrawerNavigator';
 import {AuthProvider} from './src/contexts/AuthContext';
-
 
 const navigationRef = createRef();
 const nav = () => navigationRef.current;
