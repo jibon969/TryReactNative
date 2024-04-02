@@ -10,7 +10,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import DrawerNavigator from './src/navigation/DrawerNavigator';
 import {AuthProvider} from './src/contexts/AuthContext';
 
-// store reference to navigation object
+
 const navigationRef = createRef();
 const nav = () => navigationRef.current;
 
