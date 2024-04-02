@@ -69,9 +69,9 @@ const CustomDrawerContent = props => {
             }}>
             <AntDesign name="leftcircleo" size={20} color="#007036" />
             {/* <Image source={require('../assets/icon/belaface.png')}
-                               resizeMode="cover"
-                               style={{maxWidth: '80%', maxHeight: 25, marginLeft: 10}}
-                        /> */}
+                resizeMode="cover"
+                style={{maxWidth: '80%', maxHeight: 25, marginLeft: 10}}
+            /> */}
             <Text> Application Name</Text>
           </View>
         )}
@@ -131,7 +131,6 @@ const CustomDrawerContent = props => {
       </View>
 
       {/*/End Category*/}
-
       <DrawerItem
         label={() => (
           <View>
