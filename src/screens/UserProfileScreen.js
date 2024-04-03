@@ -50,7 +50,6 @@ const UserProfileScreen = ({navigation}) => {
               </View>
             </View>
           </TouchableOpacity>
-
           {/*Security & Privacy*/}
           <TouchableOpacity>
             <View style={styles.userProfileContent}>
@@ -73,7 +72,6 @@ const UserProfileScreen = ({navigation}) => {
               </View>
             </View>
           </TouchableOpacity>
-
           {/*Terms & Conditions*/}
           <TouchableOpacity>
             <View style={styles.userProfileContent}>
@@ -96,7 +94,6 @@ const UserProfileScreen = ({navigation}) => {
               </View>
             </View>
           </TouchableOpacity>
-
           {/*Support or Contact Us*/}
           <TouchableOpacity onPress={() => navigation.navigate('ContactStack')}>
             <View style={styles.userProfileContent}>
@@ -119,7 +116,6 @@ const UserProfileScreen = ({navigation}) => {
               </View>
             </View>
           </TouchableOpacity>
-
           {/*About Us*/}
           <TouchableOpacity onPress={() => navigation.navigate('AboutStack')}>
             <View style={styles.userProfileContent}>
@@ -142,7 +138,6 @@ const UserProfileScreen = ({navigation}) => {
               </View>
             </View>
           </TouchableOpacity>
-
           {/* Setting Stack*/}
           <TouchableOpacity onPress={() => navigation.navigate('SettingStack')}>
             <View style={styles.userProfileContent}>
